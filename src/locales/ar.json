@@ -1,1 +1,7 @@
-{}
+{
+  "title": "احوال الطقس",
+  "initialError.fetchError": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا.",
+  "search.placeholder": "ابحث عن مدينة",
+  "theme.toggle": "تبديل السمة",
+  "language.toggle": "تغيير اللغة"
+}

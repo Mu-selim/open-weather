@@ -1,1 +1,7 @@
-{}
+{
+  "title": "Open Weather",
+  "initialError.fetchError": "Something went wrong, please try again later.",
+  "search.placeholder": "Search for a city",
+  "theme.toggle": "Toggle theme",
+  "language.toggle": "Change language"
+}
