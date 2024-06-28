@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Macan";
+  font-style: light;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    local("Macan"),
+    url("./fonts/macan-light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Macan";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("Macan"),
+    url("./fonts/macan-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Macan";
+  font-style: semibold;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    local("Macan"),
+    url("./fonts/macan-semibold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Macan";
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local("Macan"),
+    url("./fonts/macan-bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Helvetica";
+  font-style: light;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    local("Helvetica"),
+    url("./fonts/helvetica-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("Helvetica"),
+    url("./fonts/helvetica-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Helvetica";
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local("Helvetica"),
+    url("./fonts/helvetica-bold.woff") format("woff");
+}
+
+:root {
+  --font-macan: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-noto: "Noto Sans Arabic", sans-serif;
+}
