@@ -1,37 +1,16 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@/hooks/useTheme";
 import propTypes from "prop-types";
-import { debounce } from "lodash";
 
 import { Logo } from "@/components/svg/logo";
 import { Search, Sun, Earth } from "lucide-react";
 import { Modal } from "@/components/ui/modal";
 
-export const Header = ({ search, setSearch }) => {
+export const Header = ({ search, handleSearch }) => {
   const { t, i18n } = useTranslation("global");
   const [theme, setTheme] = useTheme();
   const [modalOpen, setModalOpen] = useState(false);
-
-  // Simulate API call
-  const fetchApiData = async (value) => {
-    console.log(`Fetching data for: ${value}`);
-    // Simulate a network request
-    const response = await new Promise((resolve) => setTimeout(() => resolve(`Response for ${value}`), 1000));
-    console.log("Response:", response);
-  };
-
-  // Debounced API call
-  const debouncedFetchApiData = useCallback(
-    debounce((value) => fetchApiData(value), 500),
-    []
-  );
-
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setSearch(value);
-    debouncedFetchApiData(value);
-  };
 
   const handleThemeChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -59,7 +38,7 @@ export const Header = ({ search, setSearch }) => {
           type="search"
           value={search}
           placeholder={t("search.placeholder")}
-          onChange={handleChange}
+          onChange={handleSearch}
           className="w-full rounded-full border-2 border-gray-500 bg-gray-200 py-1.5 pe-4 ps-10 outline-none focus:border-gray-700 dark:border-transparent dark:bg-slate-700 dark:focus:border-gray-200"
         />
         <button disabled={!search}>
@@ -75,9 +54,9 @@ export const Header = ({ search, setSearch }) => {
         </button>
       </div>
       <Modal isOpen={modalOpen} onClose={handleModalToggle}>
-        <div className="space-y-4 py-2 max-w-xl">
+        <div className="max-w-xl space-y-4 py-2">
           <h2 className="text-pretty text-center text-2xl font-bold">{t("language.modal.title")}</h2>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={() => handleLanguageChange("en")}
               className="rounded-md border-2 border-slate-900 px-4 py-1.5 text-center font-semibold"
@@ -105,5 +84,5 @@ export const Header = ({ search, setSearch }) => {
 
 Header.propTypes = {
   search: propTypes.string.isRequired,
-  setSearch: propTypes.func.isRequired,
+  handleSearch: propTypes.func.isRequired,
 };
