@@ -24,13 +24,13 @@ export const Modal = ({ isOpen, onClose, children }) => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscapeKey);
     };
-  }, [onClose]);
+  }, [onClose, isOpen]);
 
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50 flex w-full">
-      <div className="container flex h-screen w-full items-center justify-center bg-slate-800/10 filter backdrop-blur-md dark:bg-slate-300/10 dark:backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex w-full bg-slate-800/10 filter backdrop-blur-md dark:bg-slate-300/10 dark:backdrop-blur-sm">
+      <div className="container flex h-screen w-full items-center justify-center">
         <div ref={ref} className="relative rounded-md bg-gray-100 p-4 pt-8 shadow-lg">
           <button
             type="button"
