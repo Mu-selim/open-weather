@@ -33,7 +33,7 @@ export const Header = ({ search, handleSearch }) => {
         <Logo className="w-6 min-w-6" />
         <span className="whitespace-nowrap text-xl font-bold text-[#FF630B]">{t("title")}</span>
       </div>
-      <div className="relative order-3 basis-full md:order-none md:basis-auto lg:w-96">
+      <div className="relative order-3 basis-full md:order-none md:basis-auto md:w-96">
         <input
           type="search"
           value={search}
