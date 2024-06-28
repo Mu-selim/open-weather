@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import {} from "@tanstack/react-query-devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { merge } from "@/lib/utils";
 
 export default function App() {
@@ -20,6 +20,7 @@ export default function App() {
       <div className={merge(lang.toLocaleLowerCase() === "ar" ? "font-noto" : "font-macan")}>
         <h1 className="text-3xl font-bold hover:underline">Hello world!</h1>
       </div>
+      <ReactQueryDevtools initialIsOpen={false} position="left" buttonPosition="bottom-left" />
     </QueryClientProvider>
   );
 }
