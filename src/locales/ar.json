@@ -3,5 +3,10 @@
   "initialError.fetchError": "حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا.",
   "search.placeholder": "ابحث عن مدينة",
   "theme.toggle": "تبديل السمة",
-  "language.toggle": "تغيير اللغة"
+  "language.toggle": "تغيير اللغة",
+  "language.modal.title": "تغيير اللغة",
+  "language.modal.close": "إغلاق",
+  "language.modal.en": "English",
+  "language.modal.ar": "العربية",
+  "language.modal.es": "Español"
 }
