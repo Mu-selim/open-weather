@@ -46,7 +46,7 @@ export const AppContainer = () => {
     debounce((value) => {
       if (value === "") return;
       mutateAsync({ city: value, lang });
-    }, 100),
+    }, 200),
     []
   );
 
