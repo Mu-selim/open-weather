@@ -28,17 +28,6 @@ export const weatherStatusIconsMap = {
   direction,
 };
 
-export const isDayLight = (timestamp) => {
-  const date = new Date(timestamp);
-  const hours = date.getHours();
-
-  // Assuming day is between 6 AM and 6 PM
-  if (hours >= 6 && hours < 18) {
-    return true;
-  }
-  return false;
-};
-
 export const temperatureIconMap = (temp) => {
   if (temp < 0) {
     return snow;
@@ -59,4 +48,12 @@ export const getMonthAndDayName = (timestamp) => {
   const day = date.toLocaleString("default", { weekday: "long" }).toLocaleLowerCase();
   const dayNumber = date.getDate();
   return { month, day, dayNumber };
+};
+
+export const timestampsToTimeAmAndPm = (timestamp, includeMinute) => {
+  const date = new Date(timestamp * 1000);
+  if (includeMinute) {
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  }
+  return date.toLocaleTimeString([], { hour: "2-digit", hour12: true });
 };
