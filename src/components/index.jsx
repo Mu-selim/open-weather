@@ -68,7 +68,7 @@ export const AppContainer = () => {
   return (
     <div
       className={merge(
-        "flex h-screen w-full flex-col overflow-hidden bg-gray-100 text-slate-900 dark:bg-slate-900 dark:text-gray-100",
+        "flex min-h-screen w-full flex-col overflow-hidden bg-gray-100 text-slate-900 dark:bg-slate-900 dark:text-gray-100",
         lang.toLocaleLowerCase() === "ar" ? "font-noto" : "font-macan"
       )}
     >

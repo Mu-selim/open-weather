@@ -53,12 +53,10 @@ export const temperatureIconMap = (temp) => {
   }
 };
 
-export const dateHoursAndMinutes = (timestamp) => {
+export const getMonthAndDayName = (timestamp) => {
   const date = new Date(timestamp);
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  console.log(date.toLocaleString());
-  const ampm = hours >= 12 ? "PM" : "AM";
-  const formattedHours = hours % 12 || 12;
-  return `${formattedHours}:${minutes} ${ampm}`;
+  const month = date.toLocaleString("default", { month: "long" }).toLocaleLowerCase();
+  const day = date.toLocaleString("default", { weekday: "long" }).toLocaleLowerCase();
+  const dayNumber = date.getDate();
+  return { month, day, dayNumber };
 };
