@@ -14,11 +14,10 @@ const mapErrorCode = {
 export const WeatherError = ({ cod }) => {
   const { t } = useTranslation("global");
   const message = mapErrorCode[cod];
-  console.log(cod);
 
   return (
-    <div className="bg-gray-100 dark:bg-slate-900 sm:gap-8">
-      <div className="container flex h-screen w-full flex-col items-center justify-center gap-6 overflow-hidden">
+    <div className="bg-gray-100 flex-1 dark:bg-slate-900 sm:gap-8">
+      <div className="container flex w-full min-h-96 flex-col items-center justify-center gap-6 overflow-hidden">
         <UndrawWeatherApp className="w-64" />
         <h2 className="text-pretty text-center text-2xl font-bold text-gray-900 dark:text-gray-100">
           {message ? t(message) : t("weather.error.default")}
