@@ -7,6 +7,8 @@ import { Logo } from "@/components/svg/logo";
 import { Search, Sun, Earth } from "lucide-react";
 import { Modal } from "@/components/ui/modal";
 
+const LANGUGAES = ["en", "ar", "es", "de"];
+
 export const Header = ({ search, handleSearch }) => {
   const { t, i18n } = useTranslation("global");
   const [theme, setTheme] = useTheme();
@@ -33,7 +35,7 @@ export const Header = ({ search, handleSearch }) => {
         <Logo className="w-6 min-w-6" />
         <span className="whitespace-nowrap text-xl font-bold text-[#FF630B]">{t("title")}</span>
       </div>
-      <div className="relative order-3 basis-full md:order-none md:basis-auto md:w-96">
+      <div className="relative order-3 basis-full md:order-none md:w-96 md:basis-auto">
         <input
           type="search"
           value={search}
@@ -56,25 +58,21 @@ export const Header = ({ search, handleSearch }) => {
       <Modal isOpen={modalOpen} onClose={handleModalToggle}>
         <div className="max-w-xl space-y-4 py-2">
           <h2 className="text-pretty text-center text-2xl font-bold">{t("language.modal.title")}</h2>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <button
-              onClick={() => handleLanguageChange("en")}
-              className="rounded-md border-2 border-slate-900 px-4 py-1.5 text-center font-semibold"
-            >
-              {t("language.modal.en")}
-            </button>
-            <button
-              onClick={() => handleLanguageChange("ar")}
-              className="rounded-md border-2 border-slate-900 px-4 py-1.5 text-center font-semibold"
-            >
-              {t("language.modal.ar")}
-            </button>
-            <button
-              onClick={() => handleLanguageChange("es")}
-              className="rounded-md border-2 border-slate-900 px-4 py-1.5 text-center font-semibold"
-            >
-              {t("language.modal.es")}
-            </button>
+          <div className="grid grid-cols-2 gap-4">
+            {LANGUGAES.map((lang) => {
+              const translatedLang = t(`language.modal.${lang}`);
+              return (
+                <button
+                  type="button"
+                  onClick={() => handleLanguageChange(lang)}
+                  key={lang}
+                  className="rounded-md border-2 border-slate-900 px-4 py-1.5 text-center font-semibold"
+                  aria-label={translatedLang}
+                >
+                  {translatedLang}
+                </button>
+              );
+            })}
           </div>
         </div>
       </Modal>
