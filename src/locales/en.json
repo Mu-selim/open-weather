@@ -41,5 +41,22 @@
   "day.thursday": "Thursday",
   "day.friday": "Friday",
   "day.saturday": "Saturday",
-  "weather.today.details": "Today's details"
+  "weather.today.details": "Today's details",
+  "weather.sunrise": "Sunrise",
+  "weather.sunset": "Sunset",
+  "weather.wind": "Wind",
+  "weather.humidity": "Humidity",
+  "weather.pressure": "Pressure",
+  "weather.visibility": "Visibility",
+  "weather.uvIndex": "UV Index",
+  "weather.clouds": "Clouds",
+  "weather.rain": "Rain",
+  "weather.snow": "Snow",
+  "weather.fog": "Fog",
+  "weather.clear": "Clear",
+  "weather.thunderstorm": "Thunderstorm",
+  "weather.wind.speed": "Speed",
+  "weather.wind.unit": "m/s",
+  "weather.visibility.unit": "km",
+  "weather.24": "24 Hours Forecast"
 }
