@@ -5,9 +5,8 @@ import LanguageDetector from "i18next-browser-languagedetector";
 // import translations
 import EN from "@/locales/en.json";
 import AR from "@/locales/ar.json";
-
-// check for production
-const isProduction = import.meta.env.VITE_ENV === "production";
+import ES from "@/locales/es.json";
+import DE from "@/locales/de.json";
 
 i18n
   .use(LanguageDetector)
@@ -15,10 +14,12 @@ i18n
   .init({
     interpolation: { escapeValue: false },
     fallbackLng: "en",
-    debug: !isProduction,
+    debug: import.meta.env.DEV,
     resources: {
       en: { global: EN },
       ar: { global: AR },
+      es: { global: ES },
+      de: { global: DE },
     },
   });
 
