@@ -9,5 +9,17 @@
   "language.modal.en": "English",
   "language.modal.ar": "العربية",
   "language.modal.es": "Español",
-  "language.modal.de": "Deutsch"
+  "language.modal.de": "Deutsch",
+  "loading.weather": "Loading weather...",
+  "weather.error.badRequest": "Bad request, please try again.",
+  "weather.error.unauthorized": "Missing or invalid API key, please try again.",
+  "weather.error.paymentRequired": "The free tier of the API has been exceeded, please try again later.",
+  "weather.error.forbidden": "Unauthorized, please try again.",
+  "weather.error.cityNotFound": "The city was not found, please try again.",
+  "weather.error.internalServerError": "Internal server error, please try again.",
+  "weather.error.default": "Something went wrong, please try again.",
+  "wearther.now": "Now",
+  "weather.dgree": "°C",
+  "weather.population": "residents",
+  "weather.fiveDays": "5 Days Forecast"
 }

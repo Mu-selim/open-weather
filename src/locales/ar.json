@@ -9,5 +9,17 @@
   "language.modal.en": "English",
   "language.modal.ar": "العربية",
   "language.modal.es": "Español",
-  "language.modal.de": "Deutsch"
+  "language.modal.de": "Deutsch",
+  "loading.weather": "جاري تحميل الطقس...",
+  "weather.error.badRequest": "طلب غير صالح، يرجى المحاولة مرة أخرى.",
+  "weather.error.unauthorized": "مفتاح API مفقود أو غير صالح، يرجى المحاولة مرة أخرى.",
+  "weather.error.paymentRequired": "تم تجاوز الطبقة المجانية من الواجهة البرمجية، يرجى المحاولة مرة أخرى لاحقًا.",
+  "weather.error.forbidden": "غير مصرح به، يرجى المحاولة مرة أخرى.",
+  "weather.error.cityNotFound": "لم يتم العثور على المدينة، يرجى المحاولة مرة أخرى.",
+  "weather.error.internalServerError": "خطأ داخلي في الخادم، يرجى المحاولة مرة أخرى.",
+  "weather.error.default": "حدث خطأ ما، يرجى المحاولة مرة أخرى.",
+  "wearther.now": "الآن",
+  "weather.dgree": "°م",
+  "weather.population": "سكان",
+  "weather.fiveDays": "توقعات الطقس لمدة 5 أيام"
 }

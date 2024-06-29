@@ -8,6 +8,7 @@ import { fetchCurrentLocation, fetchWeather } from "@/lib/api";
 import { InitialLoader } from "@/components/ui/initialLoader";
 import { InitialError } from "@/components/ui/initialError";
 import { Header } from "@/components/header";
+import { Dashboard } from "@/components/dashboard";
 
 export const AppContainer = () => {
   const { i18n } = useTranslation("global");
@@ -17,13 +18,16 @@ export const AppContainer = () => {
     queryFn: fetchCurrentLocation,
     refetchOnWindowFocus: false,
   });
-  const { mutateAsync, data: weatherData } = useMutation({
+  const {
+    mutateAsync,
+    isPending,
+    isError,
+    data: weatherData,
+  } = useMutation({
     mutationKey: ["weather-data"],
     mutationFn: fetchWeather,
   });
   const [search, setSearch] = useState("");
-
-  console.log(weatherData);
 
   useEffect(() => {
     // Set the document language and direction to the user's preferred language
@@ -32,14 +36,17 @@ export const AppContainer = () => {
   }, [i18n, lang]);
 
   useEffect(() => {
-    if (data && data.city && lang) {
-      // mutateAsync({ city: data.city, lang });
+    if (data && data.city && lang && search === "") {
+      mutateAsync({ city: data.city, lang });
     }
-  }, [data, lang, mutateAsync]);
+  }, [data, lang, mutateAsync, search]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedFetchApiData = useCallback(
-    debounce((value) => mutateAsync({ city: value, lang }), 200),
+    debounce((value) => {
+      if (value === "") return;
+      mutateAsync({ city: value, lang });
+    }, 100),
     []
   );
 
@@ -51,14 +58,22 @@ export const AppContainer = () => {
 
   if (isFetching) return <InitialLoader />;
   if (error) return <InitialError isFetchError />;
+
+  const dashboardProps = {
+    isLoading: isPending,
+    isError,
+    data: weatherData,
+  };
+
   return (
     <div
       className={merge(
-        "h-screen w-full overflow-hidden bg-gray-100 text-slate-900 dark:bg-slate-900 dark:text-gray-100",
+        "flex h-screen w-full flex-col overflow-hidden bg-gray-100 text-slate-900 dark:bg-slate-900 dark:text-gray-100",
         lang.toLocaleLowerCase() === "ar" ? "font-noto" : "font-macan"
       )}
     >
       <Header search={search} handleSearch={handleSearch} />
+      <Dashboard {...dashboardProps} />
     </div>
   );
 };
